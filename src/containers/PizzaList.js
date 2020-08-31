@@ -1,9 +1,21 @@
-import React, { Component } from 'react';
-import Pizza from '../components/Pizza'
+
+import React, { Component, Fragment } from 'react';
+import Pizza from '../components/Pizza';
+
 class PizzaList extends Component {
 
   render() {
+
+  let pizzas = this.props.pizzas.map((obj) => <Fragment><Pizza key = {obj.id}  
+                                                               obj = {obj} 
+                                                               editHandler = {this.props.editHandler} />
+                                              </Fragment> 
+  )
+                                                     
+
     return (
+
+
       <table className="table table-striped">
         <thead>
           <tr>
@@ -14,9 +26,8 @@ class PizzaList extends Component {
           </tr>
         </thead>
         <tbody>
-          {
-            //render Pizza here
-          }
+          {pizzas}
+         
         </tbody>
       </table>
     );
